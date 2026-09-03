@@ -12,4 +12,9 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice(){
+    let choice= prompt("Choose your option").toLowerCase();
+    return choice;
+}
+
+console.log(getHumanChoice());
