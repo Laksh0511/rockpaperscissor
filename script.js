@@ -2,13 +2,13 @@ function getComputerChoice(){
     let r= Math.floor(Math.random()*3);//random from 0,1,2
 
     if(r==0){
-        return "Rock";
+        return "rock";
     }
     else if(r===1){
-        return "Paper";
+        return "paper";
     }
     else{
-        return "Scissors";
+        return "scissors";
     }
 }
 
@@ -17,4 +17,32 @@ function getHumanChoice(){
     return choice;
 }
 
-console.log(getHumanChoice());
+let humanScore=0;
+let computerScore=0;
+
+function playRound(humanChoice,computerChoice){
+    if(humanChoice.toLowerCase()==="rock" && computerChoice.toLowerCase()=="scissor"){
+        console.log("Computer Choice: "+computerChoice+" You won!");
+        humanScore++;
+    }
+    else if(humanChoice.toLowerCase()==="paper" && computerChoice.toLowerCase()=="rock"){//could be in OR statement in above too
+        console.log("Computer Choice: "+computerChoice+" You won!");
+        humanScore++;
+    }
+    else if(humanChoice.toLowerCase()==="scissors" && computerChoice.toLowerCase()=="paper"){
+        console.log("Computer Choice: "+computerChoice+" You won!");
+        humanScore++;
+    }
+    else if(humanChoice.toLowerCase()===computerChoice.toLowerCase()){
+        console.log("Computer Choice: "+computerChoice+" Chose the same!");
+    }
+    else{
+        console.log("Computer Choice: "+computerChoice+" You lost!");
+        computerScore++;
+    }
+    console.log("Your Score: "+humanScore+" Computer Score: "+computerScore);
+}
+const humanSelection=getHumanChoice();
+const computerSelection=getComputerChoice();
+
+playRound(humanSelection,computerSelection);
